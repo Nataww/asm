@@ -19,16 +19,15 @@ def get_youtube_transcript(video_url):
 # Function to generate summary using GPT-4o-mini
 def generate_summary(transcript, model_name, api_key, language):
     openai.api_key = api_key
-    prompt = f"Please summarize the following transcript in {language}, dividing it into sections with timestamps:\n{transcript}"
+    prompt = f"Please summarize the following transcript in {language}:\n{transcript}"
     
     response = openai.ChatCompletion.create(
         model=model_name,
-        messages=[
-            {"role": "user", "content": prompt}
-        ]
+        messages=[{"role": "user", "content": prompt}]
     )
-    return response.choices[0].message['content']
-
+    
+    return response['choices'][0]['message']['content']
+    
 def generate_detailed_summary(transcript, model_name, api_key, language, section):
     openai.api_key = api_key
     prompt = f"Please provide a more detailed summary of the following section of the transcript in {language}:\n{section}"
