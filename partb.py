@@ -6,6 +6,7 @@ import requests
 # get GitHub API key
 github_key = os.getenv('GITHUB_API_KEY')
 openrouter_key = os.getenv('OPENROUTER_API_KEY')
+print("github_key: {github_key}")
 
 # get GitHub API endpoint
 github_endpoint = os.getenv('GITHUB_API_ENDPOINT')
