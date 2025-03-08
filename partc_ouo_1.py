@@ -58,7 +58,7 @@ def get_transcript(video_id, language_code):
     transcript_url = f"https://yt.vl.comp.polyu.edu.hk/transcript?language_code={language_code}&password=for_demo&video_id={video_id}"
     transcript_response = requests.get(transcript_url)
     
-    if response.status_code == 200:
+    if transcript_response.status_code == 200:
         transcript = transcript_response.json()
         return transcript
     return None
